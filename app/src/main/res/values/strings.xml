@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ALC 4 Phase 1</string>
+    <string name="title_activity_about">About ACL</string>
+    <string name="title_activity_profile">My Profile</string>
+    <string name="about_alc_text">About ALC</string>
+    <string name="my_profile_text">My Profile</string>
+    <string name="welcome_to_alc_4_0_text">Welcome to ALC 4.0</string>
+    <string name="track_text">Track</string>
+    <string name="country_text">Country</string>
+    <string name="email_text">Email</string>
+    <string name="phone_number_text">Phone Number</string>
+    <string name="slack_username_text">Slack</string>
+    <string name="track_text_view">Android</string>
+    <string name="country_text_view">Ghana</string>
+    <string name="email_text_view">st.franzy@gmail.com</string>
+    <string name="phone_number_text_view">+233 24 068 7954</string>
+    <string name="username_text_view">\@Framel</string>
+    <string name="name_text_view">Frank Melomey</string>
+    <string name="no_internet_text">Sorry, No internet connection</string>
+</resources>

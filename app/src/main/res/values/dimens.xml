@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="activity_padding_start">16dp</dimen>
+    <dimen name="activity_padding_top">10dp</dimen>
+    <dimen name="activity_padding_bottom">10dp</dimen>
+    <dimen name="activity_padding_end">16dp</dimen>
+    <dimen name="button_corner_radius">6dp</dimen>
+</resources>
