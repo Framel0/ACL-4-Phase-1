@@ -3,6 +3,7 @@ package framel.inc.alc4phaseonechallenge
 import android.graphics.Bitmap
 import android.net.http.SslError
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.View
@@ -34,7 +35,31 @@ class AboutActivity : AppCompatActivity() {
             web_view_about.webViewClient = object : WebViewClient() {
 
                 override fun onReceivedSslError(view: WebView, handler: SslErrorHandler, error: SslError) {
-                    handler.proceed() // Ignore SSL certificate errors
+                    val builder = AlertDialog.Builder(this@AboutActivity)
+                    var message = "SSL Certificate error."
+                    when (error.primaryError) {
+                        SslError.SSL_UNTRUSTED -> message = "The certificate authority is not trusted."
+                        SslError.SSL_EXPIRED -> message = "The certificate has expired."
+                        SslError.SSL_IDMISMATCH -> message = "The certificate Hostname mismatch."
+                        SslError.SSL_NOTYETVALID -> message = "The certificate is not yet valid."
+                    }
+                    message += " Do you want to continue anyway?"
+
+
+                    builder.setTitle("SSL Certificate Error")
+                    builder.setMessage(message)
+                    builder.setPositiveButton("continue",
+                        { dialog, which ->
+                            handler.proceed()
+                        })
+                    builder.setNegativeButton("cancel",
+                        { dialog, which ->
+                            handler.cancel()
+                            this@AboutActivity.finish()
+                        })
+                    val dialog = builder.create()
+                    dialog.show()
+//                    handler.proceed() // Ignore SSL certificate errors
                 }
 
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
@@ -106,3 +131,5 @@ class AboutActivity : AppCompatActivity() {
 
 
 }
+
+
