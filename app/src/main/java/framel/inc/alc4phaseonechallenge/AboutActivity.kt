@@ -59,7 +59,6 @@ class AboutActivity : AppCompatActivity() {
                         })
                     val dialog = builder.create()
                     dialog.show()
-//                    handler.proceed() // Ignore SSL certificate errors
                 }
 
                 override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
